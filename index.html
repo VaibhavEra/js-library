@@ -13,17 +13,34 @@
   <body>
     <header>
       <h1>Biblioteca</h1>
-      <h2>Your Personal Book Database</h2>
+      <h2>~Your Personal Book DB</h2>
     </header>
-    <button>&plus; Add Book</button>
+    <button id="add-btn">&plus; Add Book</button>
     <div id="cards">
-      <div class="car">
+      <div class="card">
         <h4>"Politics In Minutes"</h4>
         <p>~by Markus Weeks</p>
         <p>999 Pages</p>
-        <button>Not Read</button>
-        <button>Delete</button>
+        <div>
+          <button>Not Read</button>
+          <button>Delete</button>
+        </div>
       </div>
     </div>
+    <dialog>
+      <form action="#">
+        <fieldset>
+          <legend>Add a new Book</legend>
+          <input type="text" placeholder="Book Title" />
+          <input type="text" placeholder="Author" />
+          <input type="number" placeholder="No. of Pages" />
+          <div>
+            <label for="read">Have You Read It?</label>
+            <input type="checkbox" id="read" />
+          </div>
+          <button id="submit-btn">Submit</button>
+        </fieldset>
+      </form>
+    </dialog>
   </body>
 </html>

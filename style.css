@@ -71,4 +71,137 @@ h6 {
 
 body {
   font-family: "Playfair Display", serif;
+  background-color: #faf7f0;
+}
+
+* {
+  /* border: 2px solid red; */
+}
+
+/* header */
+header {
+  color: #faf7f0;
+  background-color: #363062;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  padding: 2rem 20rem;
+  box-shadow: 0px 12px 18px grey;
+}
+header h1 {
+  font-size: 4rem;
+}
+header h2 {
+  font-family: "Montserrat", serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  position: absolute;
+  align-self: center;
+  justify-self: center;
+}
+
+/* ADD BUTTON */
+#add-btn {
+  margin: 2rem auto;
+  border: none;
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: block;
+  background-color: hsl(33, 95%, 73%);
+}
+#add-btn:hover {
+  cursor: pointer;
+  background-color: hsl(33, 95%, 53%);
+  color: hsl(42, 50%, 96%);
+}
+#add-btn:active {
+  background-color: hsl(33, 95%, 63%);
+}
+
+/* DIALOG */
+dialog {
+  padding: 4px;
+  border: none;
+  margin: auto auto;
+  background-color: hsl(33, 95%, 53%);
+  color: #faf7f0;
+  font-size: 1.5em;
+  width: 400px;
+  border-radius: 8px;
+}
+fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+fieldset input {
+  border-radius: 6px;
+  border: none;
+  padding: 8px;
+  outline: none;
+}
+fieldset input:focus {
+  border: 3px solid #4d4c7d;
+  box-shadow: 4px 4px 8px #4d4c7d;
+}
+legend {
+  margin: 0 auto;
+  padding-top: 10px;
+  font-weight: 700;
+}
+#submit-btn {
+  background-color: lightgreen;
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  font-weight: 900;
+}
+#submit-btn:hover {
+  background-color: hsl(120, 81%, 69%);
+}
+#submit-btn:active {
+  background-color: hsl(120, 81%, 59%);
+}
+fieldset div {
+  font-weight: 600;
+  margin: 0px auto;
+}
+
+/* CARDS CONTAINER */
+#cards {
+  margin: 0px 20rem;
+}
+
+/* INDIVIDUAL CARD */
+.card {
+  padding: 28px 38px;
+  width: fit-content;
+  background-color: #4d4c7d;
+  color: #faf7f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+  font-size: 1.5rem;
+}
+.card div {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+.card div button:last-child {
+  background-color: hsl(33, 95%, 53%);
+  color: #faf7f0;
+  border: none;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+.card div button:last-child:active {
+  background-color: hsl(33, 95%, 63%);
 }
