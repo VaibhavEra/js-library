@@ -3,8 +3,8 @@ const myLibrary = [
   { title: "Book2", author: "Author2", pages: "150", isRead: false },
 ];
 
+// the constructor...
 function Book(title, author, pages, isRead) {
-  // the constructor...
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -29,6 +29,12 @@ const input_checkbox = document.querySelector("#read");
 
 // Close Dialog with Submit Button
 submit_btn.addEventListener("click", () => {
+  addBookToLibrary(
+    input_title.value,
+    input_author.value,
+    input_number.value,
+    input_checkbox.checked
+  );
   dialog.close();
   input_title.value = "";
   input_author.value = "";
@@ -36,8 +42,14 @@ submit_btn.addEventListener("click", () => {
   input_checkbox.checked = false;
 });
 
-function addBookToLibrary() {
-  // do stuff here
+function addBookToLibrary(
+  input_title,
+  input_author,
+  input_number,
+  input_checkbox
+) {
+  let card = new Book(input_title, input_author, input_number, input_checkbox);
+  myLibrary.push(card);
 }
 
 // LOOP TO ADD myLibrary BOOKS to DOM
