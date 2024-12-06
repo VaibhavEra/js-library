@@ -21,22 +21,44 @@
         <h4>"Politics In Minutes"</h4>
         <p>~by Markus Weeks</p>
         <p>999 Pages</p>
-        <div>
-          <button>Not Read</button>
-          <button>Delete</button>
+        <div id="buttons">
+          <button class="button1">Not Read</button>
+          <button class="button2">Delete</button>
         </div>
       </div>
     </div>
     <dialog>
-      <form action="#">
+      <form action="#" id="myInput">
         <fieldset>
           <legend>Add a new Book</legend>
-          <input type="text" placeholder="Book Title" />
-          <input type="text" placeholder="Author" />
-          <input type="number" placeholder="No. of Pages" />
+          <input
+            id="input_title"
+            type="text"
+            name="book_name"
+            placeholder="Book Title"
+            required
+            maxlength="100"
+          />
+          <input
+            id="input_author"
+            type="text"
+            name="author_name"
+            placeholder="Author"
+            required
+            maxlength="100"
+          />
+          <input
+            id="input_number"
+            type="number"
+            name="pageNos"
+            placeholder="No. of Pages"
+            required
+            min="1"
+            max="2000"
+          />
           <div>
             <label for="read" class="checkbox">Have You Read It?</label>
-            <input type="checkbox" id="read" />
+            <input type="checkbox" name="isRead" id="read" />
           </div>
           <button id="submit-btn">Submit</button>
         </fieldset>
