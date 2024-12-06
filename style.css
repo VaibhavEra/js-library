@@ -208,7 +208,7 @@ fieldset div {
   gap: 22px;
   width: 100%;
 }
-.button2:last-child {
+.button2 {
   background-color: hsl(33, 95%, 53%);
   color: #faf7f0;
   border: none;
@@ -216,6 +216,20 @@ fieldset div {
   border-radius: 6px;
   padding: 6px 12px;
 }
-.button2:last-child:active {
+.button2:active {
   background-color: hsl(33, 95%, 63%);
+}
+
+/* READ AND NOT READ BUTTON */
+.button1 {
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  padding: 6px 12px;
+}
+.green_btn {
+  background-color: rgb(119, 235, 119);
+}
+.red_btn {
+  background-color: #ff474d;
 }

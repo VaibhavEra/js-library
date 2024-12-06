@@ -84,8 +84,15 @@ for (let books of myLibrary) {
   cards.appendChild(div_card);
 }
 
-// Delete button for individual cards
-// button2.addEventListener("click", () => {});
+// TO CHANGE COLOR AND STATUS OF READ AND NOT READ
+const read_btn = document.querySelector(".button1");
+read_btn.addEventListener("click", () => {
+  read_btn.classList.toggle("red_btn");
+  read_btn.textContent = "Read";
+  if (read_btn.getAttribute("class") == "button1 green_btn red_btn") {
+    read_btn.textContent = "Not Read";
+  }
+});
 
 // TO TOGGLE DIALOG BOX FOR INPUT
 const dialog = document.querySelector("dialog");
