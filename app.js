@@ -34,12 +34,12 @@ submit_btn.addEventListener("click", () => {
     input_number.value,
     input_checkbox.checked
   );
-  dialog.close();
   input_title.value = "";
   input_author.value = "";
   input_number.value = "";
   input_checkbox.checked = false;
   Loop();
+  dialog.close();
 });
 
 // LOOP TO ADD myLibrary BOOKS to DOM
@@ -56,16 +56,19 @@ const Loop = () => {
     buttons.setAttribute("id", "buttons");
     const button1 = document.createElement("button");
     const button2 = document.createElement("button");
+
+    div_card.classList.add("card");
+    buttons.setAttribute("id", "buttons");
     button1.classList.add("button1");
     button2.classList.add("button2");
 
     title.textContent = `"${myLibrary[books].title}"`;
     author.textContent = `~by ${myLibrary[books].author}`;
     pages.textContent = `${myLibrary[books].pages} Pages`;
-    if (myLibrary[books].isRead == true) {
+    if (myLibrary[books].isRead) {
       button1.textContent = "Read";
       button1.classList.add("green_btn");
-    } else if (myLibrary[books].isRead == false) {
+    } else {
       button1.textContent = "Not Read";
       button1.classList.add("red_btn");
     }
@@ -81,7 +84,6 @@ const Loop = () => {
     const cards = document.querySelector("#cards");
     cards.appendChild(div_card);
     books++;
-    read_btn_function();
   }
 };
 
@@ -125,22 +127,20 @@ document.addEventListener("click", (e) => {
 });
 
 // TO CHANGE COLOR AND STATUS OF READ AND NOT READ
-const read_btn_function = () => {
-  const read_btn = document.querySelectorAll(".button1");
-  read_btn.forEach((button) => {
-    button.addEventListener("click", () => {
-      console.log("working");
-      if (button.getAttribute("class") == "button1 green_btn") {
-        button.classList.add("red_btn");
-        button.classList.remove("green_btn");
-        button.textContent = "Not Read";
-      } else if (button.getAttribute("class") == "button1 red_btn") {
-        button.classList.add("green_btn");
-        button.classList.remove("red_btn");
-        button.textContent = "Read";
-      }
-    });
-  });
-};
+
+document.querySelector("#cards").addEventListener("click", (e) => {
+  if (e.target.classList.contains("button1")) {
+    const read_btn = e.target;
+    if (read_btn.classList.contains("green_btn")) {
+      read_btn.classList.remove("green_btn");
+      read_btn.classList.add("red_btn");
+      read_btn.textContent = "Not Read";
+    } else if (read_btn.classList.contains("red_btn")) {
+      read_btn.classList.remove("red_btn");
+      read_btn.classList.add("green_btn");
+      read_btn.textContent = "Read";
+    }
+  }
+});
 
 // div_card.setAttribute("data-id", ++dataNo); (Alternative way)this assign data-id to each card for deletion
