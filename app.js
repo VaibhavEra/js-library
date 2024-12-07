@@ -25,7 +25,7 @@ const input_author = document.querySelector("#input_author");
 const input_number = document.querySelector("#input_number");
 const input_checkbox = document.querySelector("#read");
 
-// Submit Button action
+// Submit Button Action
 const submit_btn = document.querySelector("#submit-btn");
 submit_btn.addEventListener("click", () => {
   addBookToLibrary(
@@ -43,10 +43,9 @@ submit_btn.addEventListener("click", () => {
 });
 
 // LOOP TO ADD myLibrary BOOKS to DOM
-// let dataNo = 0;
+let books = 0;
 const Loop = () => {
-  for (let books of myLibrary) {
-    myLibrary.shift();
+  while (books < myLibrary.length) {
     const div_card = document.createElement("div");
     div_card.classList.add("card");
 
@@ -60,13 +59,13 @@ const Loop = () => {
     button1.classList.add("button1");
     button2.classList.add("button2");
 
-    title.textContent = `"${books.title}"`;
-    author.textContent = `~by ${books.author}`;
-    pages.textContent = `${books.pages} Pages`;
-    if (books.isRead == true) {
+    title.textContent = `"${myLibrary[books].title}"`;
+    author.textContent = `~by ${myLibrary[books].author}`;
+    pages.textContent = `${myLibrary[books].pages} Pages`;
+    if (myLibrary[books].isRead == true) {
       button1.textContent = "Read";
       button1.classList.add("green_btn");
-    } else if (books.isRead == false) {
+    } else if (myLibrary[books].isRead == false) {
       button1.textContent = "Not Read";
       button1.classList.add("red_btn");
     }
@@ -80,26 +79,10 @@ const Loop = () => {
     buttons.appendChild(button2);
 
     const cards = document.querySelector("#cards");
-
-    // div_card.setAttribute("data-id", ++dataNo); (Alternative way)this assign data-id to each card for deletion
     cards.appendChild(div_card);
+    books++;
+    read_btn_function();
   }
-  // TO CHANGE COLOR AND STATUS OF READ AND NOT READ
-  const read_btn = document.querySelectorAll(".button1");
-  read_btn.forEach((button) => {
-    button.addEventListener("click", () => {
-      console.log("working");
-      if (button.getAttribute("class") == "button1 green_btn") {
-        button.classList.add("red_btn");
-        button.classList.remove("green_btn");
-        button.textContent = "Not Read";
-      } else if (button.getAttribute("class") == "button1 red_btn") {
-        button.classList.add("green_btn");
-        button.classList.remove("red_btn");
-        button.textContent = "Read";
-      }
-    });
-  });
 };
 
 // Disable Submit Button (Default Behaviour)
@@ -113,9 +96,9 @@ submit_btn.addEventListener(
 
 // TO TOGGLE DIALOG BOX FOR INPUT
 const dialog = document.querySelector("dialog");
-const showDialog = document.querySelector("#add-btn");
+const add_btn = document.querySelector("#add-btn");
 
-showDialog.addEventListener("click", () => {
+add_btn.addEventListener("click", () => {
   dialog.showModal();
 });
 // TO CLOSE DIALOG BOX BY CLICKING ON BACKDROP
@@ -140,3 +123,24 @@ document.addEventListener("click", (e) => {
     }
   }
 });
+
+// TO CHANGE COLOR AND STATUS OF READ AND NOT READ
+const read_btn_function = () => {
+  const read_btn = document.querySelectorAll(".button1");
+  read_btn.forEach((button) => {
+    button.addEventListener("click", () => {
+      console.log("working");
+      if (button.getAttribute("class") == "button1 green_btn") {
+        button.classList.add("red_btn");
+        button.classList.remove("green_btn");
+        button.textContent = "Not Read";
+      } else if (button.getAttribute("class") == "button1 red_btn") {
+        button.classList.add("green_btn");
+        button.classList.remove("red_btn");
+        button.textContent = "Read";
+      }
+    });
+  });
+};
+
+// div_card.setAttribute("data-id", ++dataNo); (Alternative way)this assign data-id to each card for deletion
